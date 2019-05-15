@@ -1,0 +1,49 @@
+<style type="text/css">
+  .style_image{
+    height: 100px;
+    width: 200px;
+  }
+</style>
+<%= form_with(model: image, local: true) do |form| %>
+  <% if image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tagline %>
+    <%= form.text_area :tagline, id: :image_tagline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_date %>
+    <%= form.date_select :created_date, id: :image_created_date %>
+  </div>
+  <!-- <div class="field">
+    <%#= form.label :user_id %>
+    <%#= form.select :user_id, @users%>
+  </div> -->
+  <div class="field">
+    <%= form.label :image_url %><br>
+    <%= form.file_field :image_url %>
+    <% if form.object.image_url? %>
+      <%= image_tag form.object.image_url, :class => "style_image" %>
+      <%= form.label :remove_image %>
+      <%= form.check_box :remove_image %> 
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :album_selection%>
+    <%= form.select :album_id, @albums%>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

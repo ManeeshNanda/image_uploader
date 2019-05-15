@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Album Created By You</h2>
+
+<table class="container-all">
+  <tr>
+    <th>Name</th>
+    <th>Created date</th>
+    <th>Actions</th>
+    <% @albums.each do |album| %>
+      <tr>
+        <td><%= album.name %></td>
+        <td><%= album.created_date %></td>
+        <td><%= link_to 'Show', album %>
+        <%= link_to 'Edit', edit_album_path(album) %>
+        <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tr>
+</table>
+<br>
+
+<%= link_to 'New Album', new_album_path %>
+</body>
+</html>

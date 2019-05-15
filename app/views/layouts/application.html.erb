@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ImageUploader</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="navbar-text pull-right">
+      <div id="banner">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+      </div>
+
+    
+	  <% if notice %>
+	  <p class="alert alert-success"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+		  <p class="alert alert-danger"><%= alert %></p>
+		<% end %>
+    <div id="middle">
+       <%#= image_tag("fastmar2.gif") %>
+    </div>  
+     <div id="columns">
+       <div id="side">
+        <div id="cart">
+          
+        </div> 
+          <ul>
+          <li><a href="/mainpage" style="color:red;">Home</a></li>
+          <% if user_signed_in?%>
+            <%#= link_to("albums", "", {:controller => "/albums", :action => "index", :remote =>true})%>
+            <li><a href="/albums" style="color:red;">Albums</a></li>
+            <li><a href="/images" style="color:red;">Upload Images</a></li>
+          <%end%>
+          <!-- <li><a href="http://www....">Home</a></li>
+          <li><a href="http://www..../faq">Questions</a></li>
+          <li><a href="http://www..../news">News</a></li>
+          <li><a href="http://www..../contact">Contact</a></li> -->
+          </ul>
+       </div> 
+     <div id="main">
+      <div id="img">
+        <%= yield %>
+      </div>
+
+    </div>
+    </div>
+  </body>
+</html>

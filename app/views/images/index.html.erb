@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.style_image{
+  height: 100px;
+  width: 200px;
+}
+</style>
+</head>
+<body>
+
+<h2>Images uploaded by you</h2>
+
+<table class="container-all">
+  <tr>
+    <th>Image</th>
+    <th>Tagline</th>
+    <th>Uploaded Date</th>
+    <th>Related To Album</th>
+    <th>Actions</th>
+  </tr>
+  <% @images.each do |image| %>
+    <tr>
+      <td><%= image_tag image.image_url, :class => "style_image"%></td>&nbsp;&nbsp;
+      <td><%= image.tagline %></td>&nbsp;&nbsp;
+      <td><%= image.created_date%></td>&nbsp;&nbsp;
+      <td><%= image.album.name%></td>
+      <td><%= link_to 'Show', image %>&nbsp;&nbsp;<%= link_to 'Edit', edit_image_path(image) %>&nbsp;&nbsp;<%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+</table>
+<br>
+<%= link_to 'New Image', new_image_path %>
+</body>
+</html>

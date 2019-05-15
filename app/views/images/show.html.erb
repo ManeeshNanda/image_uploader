@@ -1,0 +1,33 @@
+<style type="text/css">
+  .style_image{
+    height: 500px;
+    width: 500px;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @image.image_url, :class => "style_image" %>
+  
+</p>
+
+<p>
+  <strong>Tagline:</strong>
+  <%= @image.tagline %>
+</p>
+
+<p>
+  <strong>Uploaded date:</strong>
+  <%= @image.created_date %>
+</p>
+
+<p>
+  <strong>Related To Album:</strong>
+  <%= @image.album.name%>
+</p>
+
+
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

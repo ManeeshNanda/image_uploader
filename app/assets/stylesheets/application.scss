@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+/*
+ *= require bootstrap
+ 
+ */
+#banner {
+background: red;
+padding: 0px;
+height: 110px;
+/*border-bottom: 0px solid;*/
+font: small-caps 30px/30px "Times New Roman", serif;
+color: white;
+/*text-align: center;*/
+  img {
+     float: left;
+      width: 230px;
+     height: 110px;
+     }
+   #ban_font{
+   padding: 0px;
+     text-align: right;
+   }
+
+
+}
+
+#notice {
+color: #000 !important;
+border: 2px solid red;
+padding: 1em;
+margin-bottom: 2em;
+background-color: #f0f0f0;
+font: bold smaller sans-serif;
+}
+
+#middle{
+	
+	img{
+
+    width: 1227px;
+    height: 150px;
+
+	}
+}
+#columns {
+background: white;
+#main {
+margin-left: 17em;
+padding: 0em;
+background: white;
+#img{
+	/*background-image: url("rack.jpg");*/
+  background-image: url("fake.gif");
+	/*height: 1000px;*/
+	width: 1000px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+    }
+  }
+}
+
+
+
+#side {
+float: left;
+padding: 1em 2em;
+width: 13em;
+height:900px;
+background: rgb(3, 181, 115);
+form, div {
+display: inline;
+}
+input {
+font-size: small;
+}
+#cart {
+font-size: smaller;
+color:white;
+table {
+border-top:
+1px dotted #595;
+border-bottom: 1px dotted #595;
+margin-bottom: 10px;
+}
+}
+ul {
+padding: 0;
+li {
+list-style: none;
+a {
+color: #bfb;
+font-size: small;
+}
+}
+}
+}
+
+.depot_form {
+fieldset {
+background: #76d9ff;
+legend {
+color: #dfd;
+background: #141;
+font-family: sans-serif;
+padding: 0.2em 1em;
+}
+}
+form {
+label {
+width: 5em;
+float: left;
+text-align: right;
+padding-top: 0.2em;
+margin-right: 0.1em;
+display: block;
+}
+select, textarea, input {
+margin-left: 0.5em;
+}
+.submit {
+margin-left: 4em;
+}
+br {
+display: none
+}
+}
+}
